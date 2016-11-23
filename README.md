@@ -8,7 +8,7 @@ A project from the Rails Web Development track on [Bloc](bloc.io).
 ##### *User Stories*
 
 1. Initialize and authorize Kele with a Bloc username and password (*complete*)
-2. Retrieve the current user as a JSON blob (*ongoing*)
+2. Retrieve the current user as a JSON blob (*complete*)
 3. Retrieve a list of my mentor's availability
 4. Retrieve roadmaps and checkpoints
 5. Retrieve a list of my messages, respond to an existing message, and create a new message thread

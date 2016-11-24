@@ -1,0 +1,5 @@
+*.gem
+*.rbc
+/.config
+/spec/reports/
+/spec/examples.txt

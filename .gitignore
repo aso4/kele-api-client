@@ -1,5 +1,8 @@
 *.gem
 *.rbc
-/.config
+/config
 /spec/reports/
 /spec/examples.txt
+
+# Ignore application configuration
+/config/application.yml

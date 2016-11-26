@@ -6,7 +6,7 @@ class Kele
   base_uri 'https://www.bloc.io/api/v1'
 
   def initialize email, password
-    response = self.class.post '/sessions', body: {email: email, password: password}
+    response = self.class.post '/sessions', body: { email: email, password: password }
 
     if response['auth_token'].nil?
       raise ArgumentError.new 'Invalid email and/or password.'
@@ -17,7 +17,12 @@ class Kele
 
   def get_me
     url = 'https://www.bloc.io/api/v1/users/me'
-    response = self.class.get(url, headers: { "content_type" => 'application/json', "authorization" => @auth_token })
-    testthis = JSON.parse(response.body)
-    end
+    response = self.class.get '/users/me', headers: { 'content_type' => 'application/json', 'authorization' => @auth_token }
+    JSON.parse response.body
+  end
+
+  def get_mentor_availability mentor_id
+    response = self.class.get "/mentors/#{mentor_id}/student_availability", headers: { 'content_type' => 'application/json', 'authorization' => @auth_token }
+		JSON.parse response.body
+  end
 end

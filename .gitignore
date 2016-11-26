@@ -3,6 +3,7 @@
 /config
 /spec/reports/
 /spec/examples.txt
+/vcr_cassettes
 
 # Ignore application configuration
 /config/application.yml

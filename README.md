@@ -9,7 +9,7 @@ A project from the Rails Web Development track on [Bloc](bloc.io).
 
 1. Initialize and authorize Kele with a Bloc username and password (*complete*)
 2. Retrieve the current user as a JSON blob (*complete*)
-3. Retrieve a list of my mentor's availability
-4. Retrieve roadmaps and checkpoints
+3. Retrieve a list of my mentor's availability (*complete*)
+4. Retrieve roadmaps and checkpoints (*ongoing*)
 5. Retrieve a list of my messages, respond to an existing message, and create a new message thread
 6. Submit checkpoint assignments

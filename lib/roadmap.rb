@@ -4,7 +4,7 @@ module Roadmap
     JSON.parse response.body
   end
 
-  def get_checkpoints checkpoint_id
+  def get_checkpoint checkpoint_id
     response = self.class.get "/checkpoints/#{checkpoint_id}", headers: { 'content_type' => 'application/json', 'authorization' => @auth_token }
     JSON.parse response.body
   end

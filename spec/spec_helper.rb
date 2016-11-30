@@ -3,7 +3,9 @@ Bundler.setup
 
 require 'kele' # and any other gems you need
 require 'vcr_setup'
-require 'figaro'
+require 'dotenv'
+Dotenv.load
+
 # puts YAML.load(File.read(File.expand_path('../../config/application.yml', __FILE__))).class
 
 RSpec.configure do |config|

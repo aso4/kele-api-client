@@ -62,5 +62,17 @@ describe Kele do
     		expect(response["success"]).to eq true
       end
     end
+
+    it "creates a checkpoint submission" do
+      VCR.use_cassette('create_checkpoint_submission_call', record: :new_episodes) do
+        checkpoint_id = '2162'
+        assignment_branch = "https://github.com/aso4/kele-api-client/commit/8289dc49cb0ebfb1ade4cf83833a6c8a91972eca"
+        assignment_commit_link = "https://github.com/aso4/kele-api-client/commit/8289dc49cb0ebfb1ade4cf83833a6c8a91972eca"
+        enrollment_id = kele_valid_instance.get_me["current_enrollment"]["id"]
+    		comment = "This was sent from my rspec test."
+    		response = kele_valid_instance.create_submission checkpoint_id, assignment_branch, assignment_commit_link, comment, enrollment_id
+    		expect(response["status"]).to eq "submitted"
+      end
+    end
   end
 end

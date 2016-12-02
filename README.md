@@ -11,5 +11,5 @@ A project from the Rails Web Development track on [Bloc](bloc.io).
 2. Retrieve the current user as a JSON blob (*complete*)
 3. Retrieve a list of my mentor's availability (*complete*)
 4. Retrieve roadmaps and checkpoints (*complete*)
-5. Retrieve a list of my messages, respond to an existing message, and create a new message thread (*ongoing*)
-6. Submit checkpoint assignments
+5. Retrieve a list of my messages, respond to an existing message, and create a new message thread (*complete*)
+6. Submit checkpoint assignments (*ongoing*)

@@ -12,4 +12,5 @@ A project from the Rails Web Development track on [Bloc](bloc.io).
 3. Retrieve a list of my mentor's availability (*complete*)
 4. Retrieve roadmaps and checkpoints (*complete*)
 5. Retrieve a list of my messages, respond to an existing message, and create a new message thread (*complete*)
-6. Submit checkpoint assignments (*ongoing*)
+6. Submit checkpoint assignments (*complete*)
+7. Update checkpoint assignments and add VCR gem for testing (*complete*)

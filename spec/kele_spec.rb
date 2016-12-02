@@ -74,5 +74,18 @@ describe Kele do
     		expect(response["status"]).to eq "submitted"
       end
     end
+
+    it "updates a checkpoint submission" do
+      VCR.use_cassette('update_checkpoint_submission_call', record: :new_episodes) do
+        submission_id = '145128'
+        checkpoint_id = '2163'
+        assignment_branch = "update-submission"
+        assignment_commit_link = "https://github.com/aso4/kele-api-client/commit/c950a72f52d48a65d7263ed70eca77b04ca40726"
+        enrollment_id = kele_valid_instance.get_me["current_enrollment"]["id"]
+    		comment = "This was sent from my rspec test."
+    		response = kele_valid_instance.update_submission submission_id, checkpoint_id, assignment_branch, assignment_commit_link, comment, enrollment_id
+    		expect(response["status"]).to eq "updated"
+      end
+    end
   end
 end

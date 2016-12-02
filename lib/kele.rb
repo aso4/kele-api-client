@@ -48,9 +48,9 @@ class Kele
     JSON.parse response.body
   end
 
-  def update_submission checkpoint_id, assignment_branch, assignment_commit_link, comment, enrollment_id
-    options = { checkpoint_id: checkpoint_id, assignment_branch: assignment_branch, assignment_commit_link: assignment_commit_link, comment: comment, enrollment_id: enrollment_id }
-    response = self.class.post "/checkpoint_submissions/#{checkpoint_id}", headers: { 'content_type' => 'application/json', 'authorization' => @auth_token }, query: options
-    JSON.parse response.body
+  def update_submission submission_id, checkpoint_id, assignment_branch, assignment_commit_link, comment, enrollment_id
+    options = { assignment_branch: assignment_branch, assignment_commit_link: assignment_commit_link, checkpoint_id: checkpoint_id, comment: comment, enrollment_id: enrollment_id }
+    response = self.class.put "/checkpoint_submissions/#{submission_id}", headers: { 'authorization' => @auth_token }, query: options
+		JSON.parse response.body
   end
 end

@@ -1,15 +1,40 @@
-### Kele API Client
-----
+# Kele API Client
 
-A Ruby Gem API client to access the Bloc API, providing easy access to and use of [the student endpoints of Bloc's API](http://docs.blocapi.apiary.io/). Students can get their user and enrollment info, check their mentor’s availability, see their course roadmaps, and even submit their assignments through the command line. This Gem also offers the ability to read, send, and receive messages. All data is parsed and neatly formatted into JSON for easy readability.
+## Overview
 
-A project from the Rails Web Development track on [Bloc](bloc.io).
+A Ruby Gem API client to access the Bloc API, providing easy access to and use of [the student endpoints of Bloc's API](http://docs.blocapi.apiary.io/). Students can get their user and enrollment info, check their mentor’s availability, see their course roadmaps, and even submit their assignments through the command line. This Gem also offers the ability to read, send, and receive messages. All data is parsed and neatly formatted from JSON to Ruby hash.
 
-##### *User Stories*
+### Usage
 
-1. Initialize and authorize Kele with a Bloc username and password (*complete*)
-2. Retrieve the current user as a JSON blob (*complete*)
-3. Retrieve a list of my mentor's availability
-4. Retrieve roadmaps and checkpoints
-5. Retrieve a list of my messages, respond to an existing message, and create a new message thread
-6. Submit checkpoint assignments
+With a valid Bloc username and password, use the kele API to access user information.
+
+* Authenticate and retrieve user token using `Kele.new(username, password)`.
+* Retrieve authenticated user's information.
+```
+  kele_instance = Kele.new(username, password)
+  kele_instance.get_me
+```
+* Retrieve mentor availability for authenticated user.
+```
+  kele_instance = Kele.new(username, password)
+  kele_instance.get_mentor_availability(mentor_id)
+```
+* Retrieve authenticated user's curriculum roadmaps and checkpoints.
+```
+  kele_instance = Kele.new(username, password)
+  kele_instance.get_roadmap(roadmap_id)
+  kele_instance.get_checkpoint(checkpoint_id)
+```
+* Retrieve and send authenticated user's messages.
+```
+  kele_instance = Kele.new(username, password)
+  kele_instance.get_messages(page)
+  # If appending a message to an existing message thread, include the thread token. Otherwise, leave token blank.
+  kele_instance.create_message(user_id, recipient_id, subject, message, token)
+```
+* Create and update authenticated user's submissions.
+```
+  kele_instance = Kele.new(username, password)
+  kele_instance.create_submission(checkpoint_id, assignment_branch, assignment_commit_link, comment, enrollment_id)
+  kele_instance.update_submission(submission_id, checkpoint_id, assignment_branch, assignment_commit_link, comment, enrollment_id)
+```
